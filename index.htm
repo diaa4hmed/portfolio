@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diaa Ahmed | Power BI Data Analyst</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0284c7;
+            --border: #334155;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .logo i {
+            color: var(--accent);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.75rem;
+        }
+        nav ul a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav ul a:hover {
+            color: var(--accent);
+        }
+        section {
+            padding: 5.5rem 5% 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 6rem;
+        }
+        .badge {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1.25rem;
+        }
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.75rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+        .hero h1 span {
+            color: var(--accent);
+        }
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin-bottom: 2rem;
+        }
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: #0f172a;
+        }
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            color: #fff;
+        }
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+        }
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .section-header {
+            margin-bottom: 2.5rem;
+        }
+        .section-header h2 {
+            font-size: 1.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+        .section-header h2 i {
+            color: var(--accent);
+        }
+        .section-header p {
+            color: var(--text-secondary);
+        }
+        .about-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        .about-avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 1rem;
+            background: var(--bg-primary);
+            border: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: var(--text-secondary);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        .about-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .about-text h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+        }
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.75rem;
+        }
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+        .card-img {
+            width: 100%;
+            height: 200px;
+            background: #0b1120;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            overflow: hidden;
+        }
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .label-tag {
+            display: inline-block;
+            width: fit-content;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.65rem;
+            border-radius: 0.35rem;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+        .card-body h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.6rem;
+        }
+        .card-body p {
+            color: var(--text-secondary);
+            font-size: 0.925rem;
+            margin-bottom: 1.25rem;
+            flex: 1;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+        .tags span {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            padding: 0.25rem 0.6rem;
+            border-radius: 0.35rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        .card-links {
+            display: flex;
+            gap: 1rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+        .card-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .card-links a:hover {
+            text-decoration: underline;
+        }
+        .skill-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.75rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .skill-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            margin-bottom: 1.25rem;
+        }
+        .skill-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 0.6rem;
+            background: rgba(56, 189, 248, 0.12);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .skill-header h3 {
+            font-size: 1.15rem;
+        }
+        .exp-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: 0.75rem;
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .exp-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .exp-top h3 {
+            font-size: 1.2rem;
+        }
+        .exp-org {
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        .exp-badge {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        .exp-item ul {
+            padding-left: 1.25rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        .exp-item ul li {
+            margin-bottom: 0.4rem;
+        }
+        .contact-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            text-align: center;
+        }
+        .contact-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .contact-box p {
+            color: var(--text-secondary);
+            max-width: 550px;
+            margin: 0 auto 1.75rem;
+        }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        @media (max-width: 768px) {
+            .about-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .about-avatar {
+                margin: 0 auto;
+            }
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home" class="logo">
+            <i class="fa-solid fa-chart-pie"></i>
+            Diaa Ahmed
+        </a>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="badge">Power BI Data Analyst • 48-Hour Delivery</div>
+        <h1>Hi, I'm <span>Diaa Ahmed</span></h1>
+        <p>
+            I help cafe owners and retail businesses turn messy, complex sales data into clear, interactive Power BI dashboards and actionable reports within 48 hours.
+        </p>
+        <div class="btn-group">
+            <a href="#projects" class="btn btn-primary">
+                <i class="fa-solid fa-folder-open"></i>
+                View My Projects
+            </a>
+            <a href="#contact" class="btn btn-outline">
+                <i class="fa-solid fa-paper-plane"></i>
+                Get In Touch
+            </a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-header">
+            <h2><i class="fa-solid fa-user"></i> About Me</h2>
+            <p>Turning raw transactional logs into single-screen executive decisions.</p>
+        </div>
+        <div class="about-card">
+            <div class="about-avatar">
+                <img src="propic.jpeg" alt="Diaa Ahmed" onerror="this.style.display='none'; this.parentElement.innerHTML='Add profile.jpg';">
+            </div>
+            <div class="about-text">
+                <h3>Data Analyst | Power BI &amp; Business Intelligence</h3>
+                <p>
+                    Many business owners drown in scattered Excel sheets and struggle to see which products actually generate profit. I build clean data pipelines and interactive Power BI dashboards that give you the full picture on one screen within 48 hours.
+                </p>
+                <p>
+                    I work with a clear written scope, proactive updates, and a strict quality checklist—ensuring reliable metrics, clean data modeling, and on-time delivery with zero surprises.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-header">
+            <h2><i class="fa-solid fa-chart-line"></i> Projects &amp; Case Studies</h2>
+            <p>Honestly labeled analytics projects built with Power BI, SQL, Power Query, and Python.</p>
+        </div>
+        <div class="grid-2">
+            <!-- Project 1 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="vehicle.png" alt="Vehicle Sales Analysis Dashboard" onerror="this.style.display='none'; this.parentElement.innerHTML='Vehicle Dashboard Screenshot';">
+                </div>
+                <div class="card-body">
+                    <span class="label-tag">Training / Academic Project (NTI)</span>
+                    <h3>Vehicle Sales &amp; Performance Analysis</h3>
+                    <p>
+                        Cleaned and standardized multi-featured regional vehicle sales records using Power Query and Python (Pandas), modeled star-schema relationships with DAX measures, and built an interactive Power BI dashboard tracking revenue and top-performing models.
+                    </p>
+                    <div class="tags">
+                        <span>Power BI</span>
+                        <span>Power Query</span>
+                        <span>DAX</span>
+                        <span>Python (Pandas)</span>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://github.com/diaa4hmed/Vehicle-Price-Analysis.git" target="_blank">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            View Case Study
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="card">
+                <div class="card-img">
+                    <img src="chinook.jpg" alt="Chinook Database Analysis Dashboard" onerror="this.style.display='none'; this.parentElement.innerHTML='Chinook Dashboard Screenshot';">
+                </div>
+                <div class="card-body">
+                    <span class="label-tag">Training / Practice Project (NTI)</span>
+                    <h3>Chinook Database Sales &amp; Customer Analysis</h3>
+                    <p>
+                        Queried and analyzed relational digital media store records (invoices, customers, tracks, and artists) using SQL and Power Query, building an interactive Power BI dashboard to uncover top revenue-generating genres, regional sales trends, and customer purchasing behavior.
+                    </p>
+                    <div class="tags">
+                        <span>SQL</span>
+                        <span>Power BI</span>
+                        <span>Power Query</span>
+                        <span>Data Modeling</span>
+                    </div>
+                    <div class="card-links">
+                        <a href=" " target="_blank">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            View Case Study
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-header">
+            <h2><i class="fa-solid fa-layer-group"></i> Skills &amp; Expertise</h2>
+            <p>Core technical stack for data cleaning, relational modeling, and visual storytelling.</p>
+        </div>
+        <div class="grid-2">
+            <div class="skill-card">
+                <div class="skill-header">
+                    <div class="skill-icon"><i class="fa-solid fa-chart-column"></i></div>
+                    <h3>Power BI</h3>
+                </div>
+                <div class="tags" style="margin-bottom: 0;">
+                    <span>DAX Measures</span>
+                    <span>Power Query (M)</span>
+                    <span>Data Visualization</span>
+                    <span>Star-Schema Modeling</span>
+                    <span>Interactive KPIs</span>
+                    <span>Drill-Through &amp; Filters</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <div class="skill-icon"><i class="fa-brands fa-python"></i></div>
+                    <h3>Programming Analytics</h3>
+                </div>
+                <div class="tags" style="margin-bottom: 0;">
+                    <span>Python</span>
+                    <span>NumPy</span>
+                    <span>Pandas</span>
+                    <span>Matplotlib</span>
+                    <span>Statistical Analysis</span>
+                    <span>Exploratory Data Analysis (EDA)</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
+                    <h3>Database &amp; SQL</h3>
+                </div>
+                <div class="tags" style="margin-bottom: 0;">
+                    <span>SQL Queries</span>
+                    <span>Oracle SQL</span>
+                    <span>SQLite</span>
+                    <span>Joins &amp; Aggregations</span>
+                    <span>Relational Schema</span>
+                    <span>Data Validation</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <div class="skill-icon"><i class="fa-solid fa-file-excel"></i></div>
+                    <h3>Excel</h3>
+                </div>
+                <div class="tags" style="margin-bottom: 0;">
+                    <span>Data Cleaning</span>
+                    <span>Pivot Tables</span>
+                    <span>Power Query</span>
+                    <span>XLOOKUP / INDEX-MATCH</span>
+                    <span>Conditional Formatting</span>
+                    <span>KPI Reporting</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="section-header">
+            <h2><i class="fa-solid fa-briefcase"></i> Experience &amp; Practical Training</h2>
+            <p>Hands-on data analytics projects and structured technical training.</p>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-top">
+                <div>
+                    <h3>Data Analysis Trainee (Practical Track)</h3>
+                    <div class="exp-org">National Telecommunication Institute (NTI)</div>
+                </div>
+                <span class="exp-badge">Training Experience</span>
+            </div>
+            <ul>
+                <li>Executed end-to-end data cleaning, pipeline validation, and exploratory analysis across commercial datasets (Vehicle Sales and Chinook Database) using Power Query, SQL, and Python (Pandas).</li>
+                <li>Designed multi-page interactive Power BI dashboards with custom DAX measures and KPI scorecards to summarize regional revenue and product performance.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <section id="contact">
+        <div class="contact-box">
+            <h3>Ready to Turn Your Sales Data Into Clear Decisions?</h3>
+            <p>
+                Send me a message with a brief description of your data, and I will share a live interactive walkthrough and a clear 48-hour delivery plan.
+            </p>
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/in/diaaahmeddata" target="_blank" class="btn btn-primary">
+                    <i class="fa-brands fa-linkedin"></i>
+                    LinkedIn
+                </a>
+                <a href="https://mostaql.com/u/diaa7ahmed" target="_blank" class="btn btn-outline">
+                    <i class="fa-solid fa-briefcase"></i>
+                    Mostaql
+                </a>
+                <a href="https://github.com/diaa4hmed" target="_blank" class="btn btn-outline">
+                    <i class="fa-brands fa-github"></i>
+                    GitHub
+                </a>
+                <a href="mailto:diaa.ahmed.dev@gmail.com" class="btn btn-outline">
+                    <i class="fa-solid fa-envelope"></i>
+                    Email
+                </a>
+                <a href="tel:+201500281842" class="btn btn-outline">
+                    <i class="fa-solid fa-phone"></i>
+                    Phone
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Diaa Ahmed. Built for Data Analytics &amp; Business Intelligence.</p>
+    </footer>
+
+</body>
+</html>
